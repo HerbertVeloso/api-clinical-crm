@@ -2,14 +2,18 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import cors from "cors";
 
-import { routes } from "./routes";
+import { accountRoutes } from "./routes/AccountRoutes";
+import { usersRoutes } from "./routes/UsersRoutes";
+import { patientsRoutes } from "./routes/PatientsRoutes";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use(routes);
+app.use(accountRoutes);
+app.use(usersRoutes);
+app.use(patientsRoutes);
 
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
