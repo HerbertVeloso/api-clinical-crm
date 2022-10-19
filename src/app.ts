@@ -5,6 +5,7 @@ import cors from "cors";
 import { accountRoutes } from "./routes/AccountRoutes";
 import { usersRoutes } from "./routes/UsersRoutes";
 import { patientsRoutes } from "./routes/PatientsRoutes";
+import { consultationsRoutes } from "./routes/ConsultationsRoutes";
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(accountRoutes);
 app.use(usersRoutes);
 app.use(patientsRoutes);
+app.use(consultationsRoutes);
 
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {

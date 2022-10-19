@@ -34,12 +34,13 @@ model Patients {
 }
 
 model Consultations {
-  id            String   @id @default(uuid())
-  patient       Patients @relation(fields: [fk_id_patient], references: [id])
+  id            String    @id @default(uuid())
+  patient       Patients  @relation(fields: [fk_id_patient], references: [id])
   fk_id_patient String
   date          DateTime
-  created_at    DateTime @default(now())
-  modified_at   DateTime
+  reason        String
+  created_at    DateTime  @default(now())
+  modified_at   DateTime?
 
   @@map("consultations")
 }
